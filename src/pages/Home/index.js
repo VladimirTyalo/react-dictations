@@ -1,10 +1,11 @@
 import React from "react";
+import Main from 'components/Layout/Main'
 
 const Index = () => {
   return (
-    <div>
+    <Main>
       Home
-    </div>
+    </Main>
   );
 };
 

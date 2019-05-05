@@ -1,0 +1,45 @@
+@import 'styles/colors.scss';
+@import 'styles/mixins.scss';
+
+.navigation {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  background: $orange;
+}
+
+.logo {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.menuList {
+  @include clearListStyle();
+  display: flex;
+
+  & a {
+    display: block;
+    text-decoration: none;
+    background: $orange;
+    font-weight: 500;
+    font-size: 20px;
+    color: $white;
+    transition: 0.2s;
+    padding: 20px;
+  }
+}
+
+.menuItem {
+  margin-left: 10px;
+
+  &:hover {
+    & a {
+      color: $black;
+    }
+  }
+}
+
+.active {
+    color: $dark-blue !important;
+    background: $white !important;
+}
