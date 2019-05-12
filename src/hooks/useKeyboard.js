@@ -1,22 +1,36 @@
-import React, { useRef, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+
+const COMMANDS = { Enter: 'Enter', Backspace: 'Backspace', Escape: 'Escape' }
 
 export const useKeyboard = () => {
-  const [keyPressed, setKeyPressed] = useState('')
+  console.log('use keyboard')
+  const [key, setKey] = useState('')
+  // in order to distinguish between keyboard events for useEffect hook - provide uid
+  const [uid, setUid] = useState(Symbol('some random symbol'))
 
   const onKeyPress = ev => {
-    setKeyPressed(ev.key)
+    setKey(ev.key)
+    setUid(Symbol('next uid'))
   }
 
   const onKeyDown = ev => {
-    // TODO обрабатывать ESC DELETE и т.д
+    if (ev.key === 'Backspace' || ev.key === 'Enter' || ev.key === 'Escape') {
+      setKey(ev.key)
+      setUid(Symbol('next uid'))
+    }
+  }
+
+  const clear = () => {
+    window.removeEventListener('keypress', onKeyPress)
+    window.removeEventListener('keyDown', onKeyDown)
   }
 
   useEffect(() => {
     window.addEventListener('keypress', onKeyPress)
     window.addEventListener('keydown', onKeyDown)
 
-    return () => window.removeEventListener('keypress', onKeyPress)
-  }, [keyPressed])
+    return clear
+  }, [])
 
-  return { keyPressed }
+  return { key, clear, COMMANDS, uid }
 }

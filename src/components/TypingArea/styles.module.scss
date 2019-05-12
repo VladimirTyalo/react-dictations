@@ -1,4 +1,4 @@
-@import "styles/colors.scss";
+@import 'styles/colors.scss';
 
 .tokens {
   display: flex;
@@ -37,11 +37,14 @@
 }
 
 .hidden {
-  visibility: hidden;
 }
 
 .error {
   color: red;
+}
+
+.errorSpace {
+  background: red;
 }
 
 .ok {

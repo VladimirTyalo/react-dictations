@@ -1,33 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
+import Token from './Token/view'
 import styles from './styles.module.scss'
+import { SYMBOL_STATUS } from './constants'
 
-const SYMBOL_STATUS = {
-  HIDDEN: 'HIDDEN',
-  ERROR: 'ERROR',
-  OK: 'OK',
-}
-
-const TypingArea = ({ tokens, activeSymbolId, ...rest }) => {
+const TypingArea = ({ tokens, activeTokenIndex, activeSymbolIndex }) => {
   return (
     <div className={styles.tokens}>
-      {tokens.map(t => (
+      {tokens.map((t, tIndex) => (
         <div key={t.id} className={styles.token}>
-          {t.symbols.map(s => (
-            <React.Fragment key={s.id}>
-              <span
-                className={cx({
-                  [styles.symbol]: true,
-                  [styles.active]: true,
-                  [styles.ok]: s.status === SYMBOL_STATUS.OK,
-                  [styles.error]: s.status === SYMBOL_STATUS.ERROR,
-                  [styles.hidden]: s.status === SYMBOL_STATUS.HIDDEN,
-                })}
-              >
-                {s.name}
-              </span>
-            </React.Fragment>
+          {t.symbols.map((s, sIndex) => (
+            <Token
+              key={s.id}
+              isActive={activeSymbolIndex === sIndex && activeTokenIndex === tIndex}
+              status={s.status}
+              name={s.name}
+            />
           ))}
         </div>
       ))}
@@ -44,7 +32,7 @@ TypingArea.propTypes = {
       symbols: shape({
         id: string,
         name: string,
-        status: string, // hidden, error, ok, nonTouched
+        status: string,
       }),
     })
   ),
