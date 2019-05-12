@@ -3,7 +3,7 @@ module.exports = {
   tabWidth: 2,
   semi: false,
   singleQuote: true,
-  printWidth: 100,
+  printWidth: 120,
   'editor.formatOnSave': true,
   proseWrap: 'always',
   requireConfig: false,

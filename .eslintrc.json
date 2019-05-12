@@ -1,7 +1,51 @@
 {
-  "extends": "eslint:recommended",
-  "rules": {
-    "no-extra-semi": "error"
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "react-hooks"],
+  "globals": {
+    "window": true,
+    "import": true
   },
-  "plugins": ["react-hooks"]
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": "off",
+    "camelcase": [
+      "error",
+      {
+        "ignoreDestructuring": true,
+        "properties": "never"
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["newState", "draft"]
+      }
+    ],
+    "no-useless-return": 0,
+    "import/prefer-default-export": 0,
+    "react/sort-comp": 0,
+    "react/destructuring-assignment": [
+      "error",
+      {
+        "ignoreClassFields": true
+      }
+    ],
+    "react/no-danger": "off",
+    "linebreak-style": "off",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTernary": true
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
 }

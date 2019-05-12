@@ -15,8 +15,6 @@ const withState = Component => {
       console.log('...loading ', id)
     }, [id])
 
-    console.log('------', keyPressed)
-
     return <Component activeSymbolId={state} />
   }
 }
