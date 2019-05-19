@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 const COMMANDS = { Enter: 'Enter', Backspace: 'Backspace', Escape: 'Escape' }
 
 export const useKeyboard = () => {
-  console.log('use keyboard')
   const [key, setKey] = useState('')
   // in order to distinguish between keyboard events for useEffect hook - provide uid
   const [uid, setUid] = useState(Symbol('some random symbol'))

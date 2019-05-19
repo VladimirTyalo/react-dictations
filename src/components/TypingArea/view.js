@@ -26,7 +26,9 @@ const TypingArea = ({ tokens, activeTokenIndex, activeSymbolIndex }) => {
 const { oneOfType, arrayOf, shape, string, number } = PropTypes
 
 TypingArea.propTypes = {
-  tokes: arrayOf(
+  activeTokenIndex: number,
+  activeSymbolIndex: number,
+  tokens: arrayOf(
     shape({
       id: oneOfType(string, number),
       symbols: shape({
@@ -39,6 +41,8 @@ TypingArea.propTypes = {
 }
 
 TypingArea.defaultProps = {
+  activeTokenIndex: 0,
+  activeSymbolIndex: 0,
   tokens: [...Array(20)].map(t => ({
     id: Math.random() * 1000,
     symbols: [...Array(5)]

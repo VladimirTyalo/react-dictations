@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer, useMemo } from 'react'
 import { withRouter } from 'react-router-dom'
 import compose from 'ramda/src/compose'
 import { useKeyboard } from 'hooks/useKeyboard'
@@ -12,6 +12,7 @@ const withState = Component => {
     const { key, clear, COMMANDS, uid } = useKeyboard()
 
     const [{ tokens, currentTokenIndex, currentSymbolIndex }, dispatch] = useReducer(typingAreaReducer, initialState)
+    const lastToken = useMemo(() => tokens.slice(-1)[0], [tokens])
 
     const onChangeSymbol = () => {
       if (key === COMMANDS.Enter) {
@@ -21,12 +22,17 @@ const withState = Component => {
       }
 
       if (key === COMMANDS.Backspace) {
+        if (currentTokenIndex === 0 && currentSymbolIndex === 0) return
         dispatch(actionDeleteSymbol(currentTokenIndex, currentSymbolIndex))
 
         return
       }
 
       if (key) {
+        if (currentTokenIndex === tokens.length - 1 && currentSymbolIndex === lastToken.symbols.length - 1) {
+          // TODO add logic to show results
+          return
+        }
         dispatch(actionTypeSymbol(currentTokenIndex, currentSymbolIndex, key))
       }
     }
