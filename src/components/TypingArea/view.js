@@ -31,11 +31,13 @@ TypingArea.propTypes = {
   tokens: arrayOf(
     shape({
       id: oneOfType(string, number),
-      symbols: shape({
-        id: string,
-        name: string,
-        status: string,
-      }),
+      symbols: arrayOf(
+        shape({
+          id: string,
+          name: string,
+          status: string,
+        })
+      ),
     })
   ),
 }
@@ -43,21 +45,7 @@ TypingArea.propTypes = {
 TypingArea.defaultProps = {
   activeTokenIndex: 0,
   activeSymbolIndex: 0,
-  tokens: [...Array(20)].map(t => ({
-    id: Math.random() * 1000,
-    symbols: [...Array(5)]
-      .map(s => ({
-        id: Math.random() * 1000,
-        name: String.fromCharCode((97 + Math.random() * 26) | 0),
-        status: [SYMBOL_STATUS.ERROR, SYMBOL_STATUS.HIDDEN, SYMBOL_STATUS.OK][(Math.random() * 3) | 0],
-      }))
-      .concat([
-        {
-          id: 'empty',
-          name: ' ',
-        },
-      ]),
-  })),
+  tokens: [],
 }
 
 export default TypingArea

@@ -1,4 +1,4 @@
-import { SYMBOL_STATUS, DELETE_SYMBOL, TYPE_SYMBOL } from './constants'
+import { SYMBOL_STATUS, DELETE_SYMBOL, TYPE_SYMBOL, RESET_TEXT } from './constants'
 
 export const typingAreaReducer = (state, action) => {
   const { payload } = action
@@ -68,6 +68,9 @@ export const typingAreaReducer = (state, action) => {
 
       return newState
     }
+
+    case RESET_TEXT:
+      return action.payload
 
     default:
       return state
