@@ -1,12 +1,8 @@
-import React from "react";
-import Main from "components/Layout/Main";
+import React from 'react'
+import Main from 'shared/Layout/Main'
 
 const Statistics = () => {
-  return (
-    <Main>
-      Statistics
-    </Main>
-  );
-};
+  return <Main>Statistics</Main>
+}
 
-export default Statistics;
+export default Statistics

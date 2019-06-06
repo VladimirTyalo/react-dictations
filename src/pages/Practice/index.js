@@ -1,6 +1,6 @@
 import React from 'react'
-import Main from 'components/Layout/Main'
-import TypingArea from 'components/TypingArea'
+import Main from 'shared/Layout/Main'
+import TypingArea from 'modules/TypingArea'
 import { getLetterObject } from './utils'
 
 const dummyText = 'hello world and lorem ipsum lets get started'

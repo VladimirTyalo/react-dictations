@@ -1,5 +1,5 @@
-@import 'styles/colors.scss';
-@import 'styles/mixins.scss';
+@import '../../../styles/colors';
+@import '../../../styles/mixins';
 
 .navigation {
   padding: 0 40px;
@@ -40,6 +40,6 @@
 }
 
 .active {
-    color: $dark-blue !important;
-    background: $white !important;
+  color: $dark-blue !important;
+  background: $white !important;
 }

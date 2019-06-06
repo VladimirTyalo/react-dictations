@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useMemo } from 'react'
-import { useKeyboard } from 'hooks/useKeyboard'
+import { useKeyboard } from 'src/shared/hooks/useKeyboard'
 import path from 'ramda/src/path'
 import { typingAreaReducer } from './reducer'
 import { actionDeleteSymbol, actionTypeSymbol, actionResetText } from './constants'

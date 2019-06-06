@@ -1,12 +1,8 @@
-import React from "react";
-import Main from 'components/Layout/Main'
+import React from 'react'
+import Main from 'shared/Layout/Main'
 
 const Index = () => {
-  return (
-    <Main>
-      Home
-    </Main>
-  );
-};
+  return <Main>Home</Main>
+}
 
-export default Index;
+export default Index
