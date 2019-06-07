@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Main from 'shared/Layout/Main'
 import TypingArea from 'modules/TypingArea'
+import { getLesson } from 'api/lessons'
 import { getLetterObject } from './utils'
 
 const dummyText = 'hello world and lorem ipsum lets get started'
@@ -11,9 +12,11 @@ const Practice = props => {
   } = props
   const [tokens, setTokens] = React.useState([])
 
-  React.useEffect(() => {
-    // TODO make api call
-    const newTokens = dummyText.split(' ').map(word => ({
+  useEffect(() => {
+    // TODO make real api call
+    const lesson = getLesson(params.id)
+
+    const newTokens = lesson.split(' ').map(word => ({
       id: Math.random() * 100000,
       symbols: word
         .split('')

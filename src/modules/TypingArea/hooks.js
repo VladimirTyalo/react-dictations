@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useMemo } from 'react'
-import { useKeyboard } from 'src/shared/hooks/useKeyboard'
+import { useKeyboard } from 'shared/hooks/useKeyboard'
 import path from 'ramda/src/path'
 import { typingAreaReducer } from './reducer'
 import { actionDeleteSymbol, actionTypeSymbol, actionResetText } from './constants'
@@ -36,10 +36,6 @@ export const useTypingAreaHook = props => {
       dispatch(actionTypeSymbol(currentTokenIndex, currentSymbolIndex, key))
     }
   }
-
-  useEffect(() => {
-    // TODO load text by id
-  }, [id])
 
   useEffect(() => {
     onChangeSymbol()

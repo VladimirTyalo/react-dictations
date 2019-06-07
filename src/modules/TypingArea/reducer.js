@@ -1,5 +1,6 @@
 import { SYMBOL_STATUS, DELETE_SYMBOL, TYPE_SYMBOL, RESET_TEXT } from './constants'
 
+// TODO refactor using immer.js
 export const typingAreaReducer = (state, action) => {
   const { payload } = action
 
@@ -11,7 +12,7 @@ export const typingAreaReducer = (state, action) => {
 
       const currentStatus = currentSymbol.name === typedSymbol ? SYMBOL_STATUS.OK : SYMBOL_STATUS.ERROR
       const nextSymbolIndex = symbolIndex === currentToken.symbols.length - 1 ? 0 : symbolIndex + 1
-      const nextTokenIndex = symbolIndex === currentToken.symbols.length - 1 ? tokenIndex + 1 : tokenIndex // TODO add condition for last token
+      const nextTokenIndex = symbolIndex === currentToken.symbols.length - 1 ? tokenIndex + 1 : tokenIndex
 
       const newState = {
         ...state,
@@ -39,7 +40,7 @@ export const typingAreaReducer = (state, action) => {
     case DELETE_SYMBOL: {
       const { tokenIndex, symbolIndex } = payload
 
-      const prevTokenIndex = symbolIndex === 0 ? tokenIndex - 1 : tokenIndex // TODO add condition for first token
+      const prevTokenIndex = symbolIndex === 0 ? tokenIndex - 1 : tokenIndex
       const prevSymbolIndex =
         prevTokenIndex === tokenIndex ? symbolIndex - 1 : state.tokens[prevTokenIndex].symbols.length - 1
       const prevToken = state.tokens[prevTokenIndex]
