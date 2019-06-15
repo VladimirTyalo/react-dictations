@@ -4,8 +4,6 @@ import TypingArea from 'modules/TypingArea'
 import { getLesson } from 'api/lessons'
 import { getLetterObject } from './utils'
 
-const dummyText = 'hello world and lorem ipsum lets get started'
-
 const Practice = props => {
   const {
     match: { params },

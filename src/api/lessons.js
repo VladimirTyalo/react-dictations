@@ -12,5 +12,5 @@ export const getLesson = () => {
     },
   })
 
-  return lorem.generateParagraphs(2)
+  return lorem.generateParagraphs(1)
 }

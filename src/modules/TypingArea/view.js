@@ -33,7 +33,7 @@ TypingArea.propTypes = {
       id: oneOfType(string, number),
       symbols: arrayOf(
         shape({
-          id: string,
+          id: oneOfType(string, number),
           name: string,
           status: string,
         })

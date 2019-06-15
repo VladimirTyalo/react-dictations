@@ -1,7 +1,7 @@
 import React from 'react'
 import { TiPen } from 'react-icons/ti'
 
-import NavLink from 'react-router-dom/es/NavLink'
+import { NavLink } from 'react-router-dom'
 import styles from './styles.module.scss'
 
 const LessonCard = ({ index, id, icon, description }) => {
