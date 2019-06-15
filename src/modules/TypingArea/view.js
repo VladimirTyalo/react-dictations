@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Token from './Token/view'
 import styles from './styles.module.scss'
-import { SYMBOL_STATUS } from './constants'
 
 const TypingArea = ({ tokens, activeTokenIndex, activeSymbolIndex }) => {
   return (
