@@ -1,0 +1,16 @@
+@import 'styles/colors.scss';
+
+.messageContainer {
+  background: lighten($light-brown, 5%);
+  flex: 1 0 100%;
+  color: $white;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.time {
+  font-weight: bold;
+}

@@ -42,7 +42,7 @@ export const useTypingAreaHook = props => {
       if (isValidSymbolPressed(key)) {
         correctKeyPress()
       } else {
-        errorKeyPress()
+        // errorKeyPress()
       }
 
       dispatch(actionTypeSymbol(currentTokenIndex, currentSymbolIndex, key))

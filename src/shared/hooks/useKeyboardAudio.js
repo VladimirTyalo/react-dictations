@@ -6,8 +6,11 @@ const restartPlay = audio => {
   audio.play()
 }
 
+// TODO добавить дебаунс с использованием rxjs
 export const useKeyboardAudio = url => {
   const audio = useRef()
+
+  const keyPress = () => restartPlay(audio.current)
 
   useEffect(() => {
     if (!audio.current) {
@@ -15,5 +18,5 @@ export const useKeyboardAudio = url => {
     }
   }, [url])
 
-  return { keyPress: () => restartPlay(audio.current) }
+  return { keyPress }
 }

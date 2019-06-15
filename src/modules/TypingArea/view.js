@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import Token from './Token/view'
 import styles from './styles.module.scss'
@@ -8,14 +8,16 @@ const TypingArea = ({ tokens, activeTokenIndex, activeSymbolIndex }) => {
     <div className={styles.tokens}>
       {tokens.map((t, tIndex) => (
         <div key={t.id} className={styles.token}>
-          {t.symbols.map((s, sIndex) => (
-            <Token
-              key={s.id}
-              isActive={activeSymbolIndex === sIndex && activeTokenIndex === tIndex}
-              status={s.status}
-              name={s.name}
-            />
-          ))}
+          {t.symbols.map((s, sIndex) => {
+            return (
+              <Token
+                key={s.id}
+                isActive={activeSymbolIndex === sIndex && activeTokenIndex === tIndex}
+                status={s.status}
+                name={s.name}
+              />
+            )
+          })}
         </div>
       ))}
     </div>

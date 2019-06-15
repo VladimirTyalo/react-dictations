@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Main from 'shared/Layout/Main'
 import TypingArea from 'modules/TypingArea'
 import { getLesson } from 'api/lessons'
+import StartMessage from 'modules/StartMessage'
 import { getLetterObject } from './utils'
 
 const Practice = props => {
@@ -27,6 +28,7 @@ const Practice = props => {
 
   return (
     <Main>
+      <StartMessage />
       <TypingArea tokens={tokens} />
     </Main>
   )
