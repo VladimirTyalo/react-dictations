@@ -1,13 +1,19 @@
 import { useRef, useEffect } from 'react'
 
-export const useKeyboardAudio = url => {
-  const keyPress = () => {
-    let audio = new Audio(url)
-    audio.onended = () => {
-      audio = null
-    }
+const restartPlay = audio => {
+  audio.pause()
+  audio.currentTime = 0
+  audio.play()
+}
 
-    audio.play()
-  }
-  return { keyPress }
+export const useKeyboardAudio = url => {
+  const audio = useRef()
+
+  useEffect(() => {
+    if (!audio.current) {
+      audio.current = new Audio(url)
+    }
+  }, [url])
+
+  return { keyPress: () => restartPlay(audio.current) }
 }
