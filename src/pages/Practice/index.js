@@ -28,7 +28,7 @@ const Practice = props => {
 
   return (
     <Main>
-      <StartMessage />
+      <StartMessage time={7} />
       <TypingArea tokens={tokens} />
     </Main>
   )

@@ -9,8 +9,14 @@
   text-align: center;
   border-radius: 4px;
   font-size: 20px;
+  min-height: 43px;
+  transition: 0.5s;
 }
 
 .time {
   font-weight: bold;
+}
+
+.isEmpty {
+  background: transparent;
 }
